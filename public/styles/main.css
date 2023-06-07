@@ -1,0 +1,103 @@
+/* || GENERAL || */
+
+:root {
+  --MainText: #000;
+  --Background: #dfe4e6;
+  --Shadow1: #a7a7a7;
+  --Shadow2: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--Background);
+  font-size: 2.5em;
+  height: 100%;
+}
+
+.overlay {
+  box-shadow: 5px 5px 10px var(--Shadow1),
+    -5px -5px 10px var(--Shadow2);
+}
+
+.underlay {
+  box-shadow: inset 5px 5px 10px var(--Shadow1),
+    inset -5px -5px 10px var(--Shadow2);
+}
+
+/* || NAVBAR || */
+
+.nav {
+  height: 10%;
+}
+
+.home-link {
+  display: block;
+  width: fit-content;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.nav img {
+  height: 80%;
+  margin: .6em;
+}
+
+/* || DARK MODE BUTTON || */
+
+.dark-mode-btn {
+  position: absolute;
+  font-size: 3rem;
+  display: flex;
+  background-color: var(--DMBBackground);
+  border: none;
+  border-radius: 20em;
+  width: 3.3em;
+  height: calc(36px + .4em);
+  padding: .2em;
+  top: 1em;
+  right: 1em
+}
+
+.dark-mode-btn div {
+  cursor: pointer;
+  position: absolute;
+  color: var(--MainText);
+  background-color: var(--Background);
+  box-shadow: 5px 5px 10px var(--Shadow1),
+    -1px 1px 10px var(--Shadow2);
+  border-radius: 100%;
+  max-height: 36px;
+  padding: .1em;
+}
+
+.dark-mode-btn .dmb-dark {
+  display: none;
+  right: .2em;
+}
+
+/* || CONTENT || */
+
+.container {
+  height: 100%
+}
+
+.content {
+  height: calc(90% - 1.2em)
+}
+
+#map {
+  height: 100%;
+  margin: .6em;
+  border-radius: 1em;
+}
