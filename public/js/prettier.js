@@ -23,4 +23,4 @@
     }));
   d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n));
 })
-  ({ key: "", v: "weekly", lang: "pt" });
+  ({ key: "AIzaSyCLQ31WinhQ1br1bEeXmKKC_AyXX9ZiMk8", v: "weekly", lang: "pt" });

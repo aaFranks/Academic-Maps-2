@@ -1,12 +1,11 @@
-<form action="/darkmode" method="post">
-  <input type="hidden" name="darkmode" value="<%- darkMode !== 'true' %>">
-  <input type="hidden" name="page" value="<%= page %>">
-  <button class="dark-mode-btn underlay">
-    <div class="dmb-light">
-      <ion-icon name="sunny-outline"></ion-icon>
-    </div>
-    <div class="dmb-dark">
-      <ion-icon name="moon-outline"></ion-icon>
-    </div>
-  </button>
-</form>
+<div class="dark-mode-btn underlay">
+  <div class="dmb dmb-light">
+    <ion-icon name="sunny-outline"></ion-icon>
+    <div class="dmb-cover"></div>
+  </div>
+  <div class="dmb dmb-dark">
+    <ion-icon name="moon-outline"></ion-icon>
+    <div class="dmb-cover"></div>
+  </div>
+
+</div>

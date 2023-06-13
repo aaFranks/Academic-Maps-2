@@ -1,0 +1,20 @@
+<div class="list-window">
+  <div class="search">
+    <input type="search" name="search" id="search-bar" class="underlay" placeholder="Procurar evento">
+    <button class="search-btn">A</button>
+  </div>
+  <div class="list">
+    <% events.forEach(event => { %>
+    <details class="event">
+      <summary>
+        <%= event.title %>
+        <button class="find">Ir</button>
+        <button class="edit">Editar</button>
+        <button class="del">Deletar</button>
+      </summary>
+      <p><%= event.description %></p>
+      <p class="dates">Data: <%= event.startDate %> - <%= event.endingDate %></p>
+    </details>
+    <% }) %>
+  </div>
+</div>

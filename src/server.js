@@ -9,7 +9,7 @@ const port = 3000;
 // EXPRESS
 const router = require(path.resolve(__dirname, 'routers', 'routes'));
 
-const mong = require('./db/database');
+const mong = require(path.resolve(__dirname, 'db', 'database'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

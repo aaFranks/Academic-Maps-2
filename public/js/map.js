@@ -7,10 +7,10 @@ async function initMap() {
 
   map = new Map(document.getElementById("map"), {
     center: { lat: -6.88778, lng: -38.55700 },
-    zoom: 14,
+    zoom: 13,
     zoomControl: false,
     fullscreenControl: false,
-    minZoom: 13,
+    minZoom: 7,
     maxZoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
@@ -31,10 +31,22 @@ async function initMap() {
     animation: google.maps.Animation.BOUNCE
   });
 
-  marker.addListener('dblclick', () => {
-    alert(marker.getPosition());
+  marker.addListener('dblclick', evt => {
+    showPos(evt.latLng);
   });
 
 }
 
 initMap();
+
+/* EVENTS */
+
+const modal = document.querySelector('.marker-modal');
+const lat = document.querySelector('#lat');
+const lng = document.querySelector('#lng');
+
+const showPos = pos => {
+  lat.setAttribute('value', pos.lat());
+  lng.setAttribute('value', pos.lng());
+  modal.classList.remove('hidden');
+};

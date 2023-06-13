@@ -8,7 +8,13 @@
     <%- include('includes/nav') %>
     <%- include('includes/dark-mode-btn') %>
     <div class="content">
-      <div id="map"></div>
+      <div class="map-window">
+        <button id="events-button">Eventos</button>
+        <div class="overlay" id="map"></div>
+
+        <%- include('includes/modals/marker-modal') %>
+      </div>
+      <%- include('includes/event-list') %>
     </div>
   </section>
   <%- include('includes/footer') %>

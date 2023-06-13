@@ -1,42 +1,37 @@
-const mong = require('./db/database');
+const path = require('path');
+// const Event = require(path.resolve(__dirname, '..', 'models', 'EventModel'));
+const Event = require('../models/EventModel');
 
-const readAll = (req, res) => {
+const readAll = async (req, res) => {
+  let events = await Event.readAll();
+  res.send(events);
+};
 
+const readById = async (req, res) => {
+  let id = req.params.id;
+  const event = await Event.readById(id);
+  res.send(event);
+};
 
-}
+const createEvent = async (req, res) => {
+  console.log(req.body);
+  const e = new Event(req.body);
+  await e.create();
+  res.redirect('/');
+};
 
-const readById = (req, res) => {
+const updateEvent = async (req, res) => {
+  let id = req.params.id;
+  const e = new Event(req.body);
+  await e.update(id);
+  res.redirect('/');
+};
 
-  var query = { address: "Park Lane 38" };
-  dbo.collection("customers").find(query).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-  });
-  
-}
-
-const createEvent = (req, res) => {
-
-  db.collection.insertOne()
-
-  db.products.insert({
-    item: "card",
-    qty: 15 
-    })
-}
-
-const updateEvent = (req, res) => {
-
-  db.collection.updateOne()
-  
-}
-
-const deleteEvent = (req, res) => {
-
-  db.collection.remove()
-  
-}
+const deleteEvent = async (req, res) => {
+  let id = req.params.id;
+  await Event.delete(id);
+  res.redirect('/');
+};
 
 module.exports = {
   readAll,
@@ -44,4 +39,4 @@ module.exports = {
   createEvent,
   updateEvent,
   deleteEvent
-}
+};
