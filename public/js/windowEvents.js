@@ -4,7 +4,7 @@ const mapWindow = document.querySelector('.map-window');
 const eventsButton = document.getElementById('events-button');
 const searchBar = document.getElementById('search-bar');
 const eventList = document.getElementsByClassName('event');
-const delModal = document.querySelector('.del-mod-display');
+const delModal = document.querySelector('.del-mod-window');
 const delEvtId = document.getElementById('del-evt-id');
 
 let isExpanded = false;
@@ -25,7 +25,8 @@ eventsButton.addEventListener('click', () => {
 
 document.addEventListener('click', e => {
   const el = e.target;
-  if (el.classList.contains('del-btn')) {
+  if (el.classList.contains('del-btn-cover')) {
+    console.log(el.parentNode.childNodes[1].textContent);
     delEvtId.setAttribute('value', el.parentNode.childNodes[1].textContent);
     delModal.classList.remove('hidden');
   };

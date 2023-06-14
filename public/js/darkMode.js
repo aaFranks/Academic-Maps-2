@@ -1,6 +1,7 @@
 const head = document.head || document.getElementsByTagName('head');
 const btn = document.querySelector('.dark-mode-btn');
 const style = document.createElement('style');
+style.setAttribute('id', 'dark-mode-style');
 style.innerHTML = `
   :root {
   --MainText: #fff;
@@ -29,6 +30,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .home-link {
   background-image: url(../img/logoBranca.png);
 }
+
+.del-mod-display {
+  border: 3px solid var(--MainText);
+}
   `;
 
 btn.addEventListener('click', e => {
@@ -37,17 +42,17 @@ btn.addEventListener('click', e => {
 });
 
 const toggleDarkMode = () => {
-  if (localStorage.getItem('isDarkMode')) {
-    head.removeChild(head.lastElementChild);
-    localStorage.removeItem('isDarkMode');
+  if (localStorage.getItem('isDarkMode') === 'true') {
+    head.removeChild(document.getElementById('dark-mode-style'));
+    localStorage.setItem('isDarkMode', 'false');
   } else {
     head.appendChild(style);
-    localStorage.setItem('isDarkMode', true);
+    localStorage.setItem('isDarkMode', 'true');
   }
 };
 
 const darkMode = () => {
-  if (localStorage.getItem('isDarkMode'))
-    head.appendChild(style);
+  if (localStorage.getItem('isDarkMode') === 'true')
+    head.appendChild(style);;
 };
 darkMode();

@@ -2,9 +2,12 @@
 
 :root {
   --MainText: #000;
+  --TextLighter: #7a7a7a;
   --Background: #dfe4e6;
   --Shadow1: #a7a7a7;
   --Shadow2: #fff;
+  --Button: #1a73e8;
+  --BtnDanger: #e23030;
 }
 
 * {
@@ -20,8 +23,14 @@ html {
 }
 
 body {
-  background-color: var(--Background);
+  color: var(--MainText);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 2.5em;
+  background-color: var(--Background);
+}
+
+.hidden {
+  display: none;
 }
 
 .overlay {
@@ -34,6 +43,19 @@ body {
   background-color: var(--Background);
   box-shadow: inset 5px 5px 10px var(--Shadow1),
     inset -5px -5px 10px var(--Shadow2);
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  color: var(--MainText);
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: var(--Background);
+  border: none;
+  border-radius: 1em;
+  padding: .3em 1em;
 }
 
 /* || NAVBAR || */
@@ -96,102 +118,22 @@ body {
 
 /* || CONTENT || */
 
-
 .content {
   position: absolute;
   width: 100%;
-  height: calc(90% - 1.2em);
+  height: calc(90% - 2.5em);
 }
 
-/* | MAP | */
-
-.map-window {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  transition-duration: .4s;
-  transition-timing-function: ease-in-out;
-}
-
-#map {
-  height: 100%;
-  margin: 0 .6em .6em;
-  border-radius: 1em;
-}
-
-.shrunk {
-  width: 70%;
-}
-
-/* | EVENTS LIST | */
-
-#events-button {
-  position: absolute;
-  z-index: 2;
-  right: 2em;
-  margin: 2em;
-}
-
-.list-window {
-  position: absolute;
-  border: 2px solid var(--Shadow1);
-  border-radius: 1em;
-  left: 70%;
-  width: calc(30% - .6em);
-  height: 100%;
-  padding: .6em .6em 0;
-}
-
-.search {
-  display: flex;
-  width: 100%;
-}
-
-#search-bar {
-  font-size: 2rem;
+.btn {
+  color: white;
+  background-color: var(--Button);
   border: none;
-  border-radius: 1em;
-  width: 100%;
-  height: 3em;
-  padding: .6em;
+  padding: .3em;
 }
 
-.search-btn {
-  padding: .6em;
-}
-
-.list {
-  margin: .6em 0
-}
-
-/* || MODALS || */
-/* | MARKER | */
-
-.marker-modal {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--Background);
-  border-radius: 3em;
-  box-shadow: 0px 0px 10px var(--Shadow1);
-  bottom: 1em;
-  left: calc(50% - 25rem);
-  width: 50rem;
-  padding: 1em 3em;
-}
-
-.hidden {
-  display: none;
-}
-
-.pos {
-  pointer-events: none;
-}
-
-.pos input {
+.btn-danger {
+  color: white;
+  background-color: var(--BtnDanger);
   border: none;
-  background-color: var(--Background);
+  padding: .3em;
 }
-
-.modal-btn {}
