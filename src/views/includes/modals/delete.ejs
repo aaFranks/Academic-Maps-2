@@ -1,5 +1,7 @@
-<form action="/mapsdb-api/v1/delete" method="post" class="form delete-form">
-  <input type="hidden" name="evt-id" value="<%= evtId %>">
-  <button type="submit" class="submit-btn danger-btn">Deletar</button>
-  <button class="submit-btn cancel-btn">Cancelar</button>
-</form>
+<div class="del-mod-display hidden">
+  <form action="/mapsdb-api/v1/delete" method="post" class="form delete-form">
+    <input type="hidden" name="id" id="del-evt-id">
+    <button type="submit" class="submit-btn danger-btn">Deletar</button>
+    <button class="submit-btn cancel-btn">Cancelar</button>
+  </form>
+</div>

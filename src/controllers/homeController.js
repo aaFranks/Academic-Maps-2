@@ -8,7 +8,15 @@ const index = async (req, res) => {
 };
 
 const createEvent = (req, res) => {
-  res.render('event', { method: 'create', pos: req.body });
+  const pos = req.body;
+  res.render('event', {
+    method: 'create',
+    event: {
+      _id: false,
+      positionLat: pos.lat,
+      positionLng: pos.lng
+    }
+  });
 };
 
 const updateEvent = (req, res) => {

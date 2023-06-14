@@ -9,6 +9,9 @@ const EventSchema = new mongoose.Schema({
   endingDate: { type: Date, default: new Date().getTime }
 });
 
+EventSchema.index({ title: 'text', description: 'text' },
+  { default_language: 'pt', weights: { title: 2, description: 1 } });
+
 const EventModel = mongoose.model('Event', EventSchema);
 
 class Event {
@@ -20,6 +23,7 @@ class Event {
 
   async create() {
     this.event = await EventModel.create(this.body);
+    console.log(this.event);
   }
 
   static async readAll() {
@@ -40,8 +44,13 @@ class Event {
 
   static async delete(id) {
     if (typeof id !== 'string') return;
-    const event = EventModel.findByIdAndDelete(id);
+    const event = await EventModel.findByIdAndDelete(id);
     return event;
+  }
+
+  static async search(text) {
+    const events = await EventModel.find({ $text: { $search: text } });
+    return events;
   }
 }
 

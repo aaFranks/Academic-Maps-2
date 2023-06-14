@@ -5,11 +5,14 @@
 <body>
 
   <section class="container">
+    <%- include('includes/modals/delete') %>
     <%- include('includes/nav') %>
     <%- include('includes/dark-mode-btn') %>
     <div class="content">
-      <div class="map-window">
-        <button id="events-button">Eventos</button>
+      <div class="map-window shrunk">
+        <button id="events-button" class="btn" title="Eventos">
+          <ion-icon name="menu"></ion-icon>
+        </button>
         <div class="overlay" id="map"></div>
 
         <%- include('includes/modals/marker-modal') %>

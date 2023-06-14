@@ -14,7 +14,6 @@ const readById = async (req, res) => {
 };
 
 const createEvent = async (req, res) => {
-  console.log(req.body);
   const e = new Event(req.body);
   await e.create();
   res.redirect('/');
@@ -28,9 +27,17 @@ const updateEvent = async (req, res) => {
 };
 
 const deleteEvent = async (req, res) => {
-  let id = req.params.id;
+  let id = req.body.id;
   await Event.delete(id);
   res.redirect('/');
+};
+
+const searchByText = async (req, res) => {
+  let text = req.params.text;
+  console.log(text);
+  let result = await Event.search(text);
+  console.log(result);
+  res.render('index', { events: result });
 };
 
 module.exports = {
@@ -38,5 +45,6 @@ module.exports = {
   readById,
   createEvent,
   updateEvent,
-  deleteEvent
+  deleteEvent,
+  searchByText
 };

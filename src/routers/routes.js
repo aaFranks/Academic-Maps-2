@@ -18,6 +18,18 @@ router.post('/mapsdb-api/v1/create', map.createEvent);
 
 router.post('/mapsdb-api/v1/update/:id', map.updateEvent);
 
-router.post('/mapsdb-api/v1/delete/:id', map.deleteEvent);
+router.post('/mapsdb-api/v1/delete/', map.deleteEvent);
+
+router.post('/mapsdb-api/v1/search', (req, res) => {
+  let text = req.body.text;
+
+  if (text === '') {
+    res.redirect('/');
+  } else {
+    res.redirect('/mapsdb-api/v1/search/' + text);
+  }
+});
+
+router.get('/mapsdb-api/v1/search/:text', map.searchByText);
 
 module.exports = router;
